@@ -56,6 +56,8 @@ namespace BankAccountNS
             m_balance -= amount; // intentionally incorrect code
         }
 
+        // class under test
+        public const string CreditAmountLessThanZeroMessage = "Credit amount less than zero";
         public void Credit(double amount)
         {
             if (m_frozen)
@@ -69,6 +71,13 @@ namespace BankAccountNS
             }
 
             m_balance += amount;
+        }
+
+        // function solely to test if account freezing works
+        // MUST BE DELETED
+        public void FreezeAccountTest()
+        {
+            m_frozen = true;
         }
 
         private void FreezeAccount()
